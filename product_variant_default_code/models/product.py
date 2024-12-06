@@ -227,6 +227,8 @@ class ProductProduct(models.Model):
             value_codes
         ):
             return None
+        elif not self.product_tmpl_id.reference_mask:
+            return None
         else:
             product_attrs = defaultdict(str)
             reference_mask = ReferenceMask(self.product_tmpl_id.reference_mask)
